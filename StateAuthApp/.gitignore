@@ -1,15 +1,26 @@
+# Gradle
+.gradle/
+build/
+**/build/
+
+# Android Studio e IDE
+.idea/
 *.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+
+# Arquivos locais da máquina (caminho do SDK, etc.)
 local.properties
+
+# Saídas de compilação
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Logs e capturas
+*.log
+captures/
+
+# Chaves de assinatura
+*.jks
+*.keystore
