@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "38079494229",
+    "project_id": "mobileapps2-assignment2",
+    "storage_bucket": "mobileapps2-assignment2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38079494229:android:5377d1686a54f89dfafcdc",
+        "android_client_info": {
+          "package_name": "com.diegoalves.stateauthapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA37jniMiJAcGaONeSV8WktRIK4NV4LkPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
