@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    // Aplica o plugin que transforma o google-services.json em configuração do Firebase
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -45,6 +47,12 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    // O BoM garante que as bibliotecas do Firebase usem versões compatíveis entre si
+    implementation(platform(libs.firebase.bom))
+    // Firebase Authentication. Com o BoM, a versão não é escrita aqui
+    implementation(libs.firebase.auth)
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
