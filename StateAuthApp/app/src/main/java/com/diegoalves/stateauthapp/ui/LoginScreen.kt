@@ -16,6 +16,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,6 +34,7 @@ fun LoginScreen(
     isLoading: Boolean,
     onSignIn: (String, String) -> Unit,
     onRegister: (String, String) -> Unit,
+    onBackToMenu:() -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -95,5 +97,11 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(16.dp))
             CircularProgressIndicator()
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        TextButton(onClick = onBackToMenu) {
+            Text(text = "Back to menu")
+        }
+
     }
 }
