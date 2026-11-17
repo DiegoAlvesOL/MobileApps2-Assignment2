@@ -33,6 +33,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.diegoalves.stateauthapp.exceptions.DemoResult
+import com.diegoalves.stateauthapp.exceptions.runCustomExceptionDemo
 import com.diegoalves.stateauthapp.exceptions.runPreconditionDemo
 
 
@@ -50,6 +51,8 @@ class MainActivity : ComponentActivity() {
     private var isAuthLoading by mutableStateOf(false)
 
     private var preconditionResults by mutableStateOf<List<DemoResult>>(emptyList())
+
+    private var customExceptionResults by mutableStateOf<List<DemoResult>>(emptyList())
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,7 +127,11 @@ class MainActivity : ComponentActivity() {
                                 onRunPreconditionDemo = {
                                     preconditionResults = runPreconditionDemo()
                                 },
-                                onBackToMenu = {backToMenu()},
+                                customExceptionResults = customExceptionResults,
+                                onRunCustomExceptionDemo = {
+                                    customExceptionResults = runCustomExceptionDemo()
+                                },
+                                onBackToMenu = { backToMenu() },
                                 modifier = Modifier.safeDrawingPadding()
                             )
                         }
