@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
@@ -30,13 +29,14 @@ import com.diegoalves.stateauthapp.ui.LoginScreen
 import com.diegoalves.stateauthapp.ui.MainMenuScreen
 import com.diegoalves.stateauthapp.ui.theme.StateAuthAppTheme
 import com.google.android.gms.tasks.Task
-import com.google.firebase.annotations.concurrent.Background
+
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.diegoalves.stateauthapp.exceptions.DemoResult
+import com.diegoalves.stateauthapp.exceptions.runPreconditionDemo
 
-/**
- * Activity principal. Só monta o tema e exibe o CounterScreen.
- */
+
+
 class MainActivity : ComponentActivity() {
 
     private val firebaseAuth: FirebaseAuth = FirebaseAuth.getInstance()
@@ -48,6 +48,8 @@ class MainActivity : ComponentActivity() {
     private var authErrorMessage by mutableStateOf<String?>(null)
 
     private var isAuthLoading by mutableStateOf(false)
+
+    private var preconditionResults by mutableStateOf<List<DemoResult>>(emptyList())
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -118,6 +120,10 @@ class MainActivity : ComponentActivity() {
                         }
                         AppScreen.EXCEPTIONS -> {
                             ExceptionsScreen(
+                                preconditionResults = preconditionResults,
+                                onRunPreconditionDemo = {
+                                    preconditionResults = runPreconditionDemo()
+                                },
                                 onBackToMenu = {backToMenu()},
                                 modifier = Modifier.safeDrawingPadding()
                             )
